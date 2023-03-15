@@ -49,8 +49,8 @@ def edit(request, id):
         if form.is_valid():
             form.save()
             return render(request, 'students/edit.html', 
-                          {'form':form(), 'success': True})
+                          {'form': form, 'success': True})
     else:
         student = Student.objects.get(pk=id)
         form = StudentForm(instance=student)
-    return render(request, 'students/edit.html', {'form':form()})
+    return render(request, 'students/edit.html', {'form': form})
